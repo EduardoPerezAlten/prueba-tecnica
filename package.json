@@ -1,0 +1,25 @@
+{
+  "name": "prueba-tecnica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduardoPerezAlten/prueba-tecnica.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EduardoPerezAlten/prueba-tecnica/issues"
+  },
+  "homepage": "https://github.com/EduardoPerezAlten/prueba-tecnica#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.25.1"
+  }
+}
