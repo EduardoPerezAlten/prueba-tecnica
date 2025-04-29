@@ -43,8 +43,7 @@ _Las pruebas se pueden ejecutar de dos maneras._
 _La primera es por linea de comandos._
 
 ```
-El comando Curl nos permitirá poder realizar llamadas a los distintos end points y nos devolvera la informacion en formato
-JSON.
+El comando Curl nos permitirá poder realizar llamadas a los distintos end points y nos devolverá la información en formato JSON.
 ```
 
 
