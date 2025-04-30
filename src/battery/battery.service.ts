@@ -47,6 +47,7 @@ export function discharge(amount: number): void {
 
 export function stringOutput(type: 'status' | 'charge' | 'discharge' | 'history'): Object{
 	let output: Object = ''; 
+	let historyOutput: Object[] = [];
 	if (type === 'discharge' || type === 'charge') {
 		output = {
 			amount: battery.charge,
@@ -62,14 +63,15 @@ export function stringOutput(type: 'status' | 'charge' | 'discharge' | 'history'
 		let index: number = history.length -1;
 		let count: number = 0;
 		while (index >= 0 && count < 20) {
-			output = {
+			historyOutput.push({
 					opType: history[index].opType,
 					charge: `${history[index].newBattery.charge} kWh`,
 					timestamp: history[index].newBattery.changedAt,
-			}
+			})
 			index--;
 			count++;
 		}
+		return historyOutput;
 	}
 	return output;
 }
