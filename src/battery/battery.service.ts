@@ -8,7 +8,7 @@ const battery: Battery = {
 const history: BatteryHistory[] = [];
 
 export function getStatus(): Battery {
-    return battery;
+  return battery;
 }
 
 export function charge(amount: number): void {
@@ -24,7 +24,7 @@ export function charge(amount: number): void {
 			oldBattery: oldBattery,
 			opType: 'charge',
 		});
-	}
+  }
 }
 
 export function discharge(amount: number): void {
@@ -41,8 +41,9 @@ export function discharge(amount: number): void {
 		newBattery: newBattery,
 		oldBattery: oldBattery,
 		opType: 'discharge',
-	});
-	}	
+	  });
+	}
+	
 }
 
 export function stringOutput(type: 'status' | 'charge' | 'discharge' | 'history'): Object{
@@ -51,26 +52,35 @@ export function stringOutput(type: 'status' | 'charge' | 'discharge' | 'history'
 	if (type === 'discharge' || type === 'charge') {
 		output = {
 			amount: battery.charge,
-		}
+		};
+    console.log(`{
+      "amount": ${battery.charge} kWh
+    }`);
 	} else if (type === 'status') {
 		let percentage: number = (battery.charge/battery.max_charge_value)*100;
 		output = {
 			percentage: `${percentage}%`,
 			máxChargeValue: `${battery.max_charge_value} kWh`,
 			lastMod: battery.changedAt,
-		}
+		};
+    console.log(`{
+      "percentage": ${percentage}%,
+      "máxChargeValue": ${battery.max_charge_value} kWh,
+      "lastMod": ${battery.changedAt},
+      }`);
 	} else if (type === 'history') {
 		let index: number = history.length -1;
 		let count: number = 0;
 		while (index >= 0 && count < 20) {
 			historyOutput.push({
-					opType: history[index].opType,
-					charge: `${history[index].newBattery.charge} kWh`,
-					timestamp: history[index].newBattery.changedAt,
+        opType: history[index].opType,
+        charge: `${history[index].newBattery.charge} kWh`,
+        timestamp: history[index].newBattery.changedAt,
 			})
 			index--;
 			count++;
 		}
+    console.log(JSON.stringify(historyOutput));
 		return historyOutput;
 	}
 	return output;

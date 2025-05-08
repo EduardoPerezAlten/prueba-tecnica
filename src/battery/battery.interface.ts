@@ -1,11 +1,11 @@
-// In this file i just create the skeleton of the Battery.
+// Skeleton for the battery object
 export interface Battery {
     charge: number;
     max_charge_value: number;
     changedAt: string;
 }
 
-// Historycal of battery changes
+// Skeleton for the historycal of battery changes
 export interface BatteryHistory {
     newBattery: Battery;
     oldBattery: Battery;
